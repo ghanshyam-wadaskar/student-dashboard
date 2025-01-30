@@ -50,15 +50,15 @@ const Students = () => {
   const handleAddStudent = async () => {
     await addDoc(collection(db, "students"), newStudent);
     setOpen(false);
-    setNewStudent({ name: "", class: "", section: "", roll: "" }); // Reset form
-    const querySnapshot = await getDocs(collection(db, "students")); // Refresh list
+    setNewStudent({ name: "", class: "", section: "", roll: "" }); 
+    const querySnapshot = await getDocs(collection(db, "students")); 
     setStudents(querySnapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() })));
   };
 
-  // Open the edit modal with pre-filled student data
+  
   const handleEditStudent = (student) => {
     setCurrentStudent(student);
-    setNewStudent(student); // Prefill data
+    setNewStudent(student); 
     setEditOpen(true);
   };
 
@@ -67,7 +67,7 @@ const Students = () => {
     const studentRef = doc(db, "students", currentStudent.id);
     await updateDoc(studentRef, newStudent);
     setEditOpen(false);
-    setNewStudent({ name: "", class: "", section: "", roll: "" }); // Reset form
+    setNewStudent({ name: "", class: "", section: "", roll: "" }); 
     const querySnapshot = await getDocs(collection(db, "students"));
     setStudents(querySnapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() })));
   };
