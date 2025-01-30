@@ -7,6 +7,12 @@ import { auth } from "./firebase";
 import Students from "./pages/Students";
 import Login from "./pages/Login";
 import { CircularProgress } from "@mui/material";
+import { BrowserRouter as Router } from "react-router-dom";
+
+<Router basename="/-student-dashboard">
+  {-student-dashboard}
+</Router>
+
 
 const App = () => {
   const [loading, setLoading] = useState(true);
